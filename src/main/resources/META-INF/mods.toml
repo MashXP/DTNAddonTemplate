@@ -1,0 +1,34 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All Right Reserved"
+issueTrackerURL=""
+displayURL=""
+logoFile="your_banner.png" #optional
+[[mods]] #mandatory
+    modId="addonname_dtn"
+    version="${file.jarVersion}"
+###    updateJSONURL=""
+    displayName="Your Addon's Beautiful Name"
+    credits="You, MashXP and DashieDev (Providing the Base for the Addon)"
+    authors="mashxp"
+    description=" Your lovely description about the addon! It can be anything"
+[[dependencies.addonname_dtn]] #optional
+    modId="forge"
+    mandatory=true
+    versionRange="[40.0.18,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.addonname_dtn]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.addonname_dtn]]
+    modId="doggytalents"
+    mandatory=true
+    versionRange="[1.17.0,)"
+    ordering="NONE"
+    side="BOTH"

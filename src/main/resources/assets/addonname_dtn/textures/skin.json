@@ -1,0 +1,12 @@
+{
+    "dog_skins" : [
+        {
+            "skin_name" : "Your Dog Model Name - Addon Name",
+            "skin_id" : "addonname_dtn:textures/dogmodelname",
+            "use_model" : "addonname_dtn:dogmodelname",
+            "based_on" : "In case you want citation or else remove this line.",
+            "tags" : "YourAddonName, or whichever is most unique out of your designs!",
+            "author" : "You"
+        }
+    ]
+}
