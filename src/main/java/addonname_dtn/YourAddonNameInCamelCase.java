@@ -14,14 +14,14 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import addonname_dtn.models.YourDogDerootedModel;
 
 @Mod(Constants.MOD_ID)
-public class YourAddonNameInCamelnCase {
+public class YourAddonNameInCamelCase {
 
-    public YourAddonNameInCamelnCase() {
+    public YourAddonNameInCamelCase() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            modEventBus.addListener(YourAddonNameInCamelnCase::registeringSkin);
-            modEventBus.addListener(YourAddonNameInCamelnCase::registeringSkinJson);
-            modEventBus.addListener(YourAddonNameInCamelnCase::registerLayerDefinition);
+            modEventBus.addListener(YourAddonNameInCamelCase::registeringSkin);
+            modEventBus.addListener(YourAddonNameInCamelCase::registeringSkinJson);
+            modEventBus.addListener(YourAddonNameInCamelCase::registerLayerDefinition);
         });
 
     }

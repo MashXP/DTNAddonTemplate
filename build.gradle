@@ -104,8 +104,8 @@ jar {
 
     manifest {
         attributes([
-            "Specification-Title": "Your Addon's Name",
-            "Specification-Vendor": "You",
+            "Specification-Title": "Your Addon's Beautiful Name",
+            "Specification-Vendor": "You :>",
             "Specification-Version": project.version,
             "Implementation-Title": project.name,
             "Implementation-Version": project.version,
