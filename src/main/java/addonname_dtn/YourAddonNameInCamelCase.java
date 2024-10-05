@@ -3,28 +3,25 @@ import org.joml.Vector3f;
 
 import doggytalents.api.events.RegisterCustomDogModelsEvent;
 import doggytalents.api.events.RegisterDogSkinJsonPathEvent;
+import doggytalents.api.fabric_helper.entry.DogModelConfiguationRegistry.Context;
+import doggytalents.api.fabric_helper.entry.DogModelConfigurationEntry;
 import doggytalents.api.events.RegisterCustomDogModelsEvent.DogModelProps.Builder;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions;
+import addonname_dtn.forge_imitate.event.EntityRenderersEvent.RegisterLayerDefinitions;
 import addonname_dtn.models.YourDogDerootedModel;
 
-@Mod(Constants.MOD_ID)
-public class YourAddonNameInCamelCase {
+//@Mod(Constants.MOD_ID)
+public class YourAddonNameInCamelCase implements DogModelConfigurationEntry {
 
-    public YourAddonNameInCamelCase() {
-        IEventBus modEventBus = ModLoadingContext.get().getActiveContainer().getEventBus();
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            modEventBus.addListener(YourAddonNameInCamelCase::registeringSkin);
-            modEventBus.addListener(YourAddonNameInCamelCase::registeringSkinJson);
-            modEventBus.addListener(YourAddonNameInCamelCase::registerLayerDefinition);
-        };
+    // public YourAddonNameInCamelCase() {
+    //     IEventBus modEventBus = ModLoadingContext.get().getActiveContainer().getEventBus();
+    //     if (FMLEnvironment.dist == Dist.CLIENT) {
+    //         modEventBus.addListener(YourAddonNameInCamelCase::registeringSkin);
+    //         modEventBus.addListener(YourAddonNameInCamelCase::registeringSkinJson);
+    //         modEventBus.addListener(YourAddonNameInCamelCase::registerLayerDefinition);
+    //     };
 
-    }
+    // }
 
     public static void registeringSkin(RegisterCustomDogModelsEvent event) {
         event.register(new Builder(getRes("dogmodelname"), ModelLayerLocations.YOUR_DOG_MODEL));
@@ -52,6 +49,13 @@ public class YourAddonNameInCamelCase {
 
     public static ResourceLocation getRes(String name) {
         return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
+    }
+
+    @Override
+    public void onGatherDogModel(Context ctx) {
+        registerLayerDefinition(new RegisterLayerDefinitions());
+        registeringSkinJson(ctx.skinJsonEvent());
+        registeringSkin(ctx.propsEvent());
     }
     
 }
